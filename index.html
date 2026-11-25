@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Soham Gulati</title>
+<meta name="description" content="Portfolio of Soham Gulati, B.Tech CSE (AI &amp; ML) student at Shri Ramswaroop Memorial University. Projects, skills and achievements.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232650D8'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' text-anchor='middle' fill='white'%3ESG%3C/text%3E%3C/svg%3E">
+<style>
+html { color-scheme: light; }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+/* Layout: left-aligned single column, wide hero name, resume-style rows for education, two project cards that read like repository entries. */
+:root {
+  --bg: #EDF0F3;
+  --surface: #F8FAFB;
+  --fg: #14202B;
+  --muted: #55636F;
+  --line: #CDD5DC;
+  --accent: #2650D8;
+  --accent-fg: #FFFFFF;
+  --font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F161D; --surface: #17212B; --fg: #E6ECF2; --muted: #98A6B3;
+    --line: #2A3743; --accent: #86A6FF; --accent-fg: #0F161D;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F161D; --surface: #17212B; --fg: #E6ECF2; --muted: #98A6B3;
+  --line: #2A3743; --accent: #86A6FF; --accent-fg: #0F161D;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+header .wrap {
+  display: flex; flex-wrap: wrap; gap: 12px 24px;
+  justify-content: space-between; align-items: center;
+  padding-block: 20px;
+}
+.brand { font-family: var(--font-mono); font-size: 14px; color: var(--muted); }
+nav { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 15px; }
+nav a { color: var(--fg); text-decoration: none; }
+nav a:hover { color: var(--accent); }
+
+.hero { padding-block: 56px 48px; border-bottom: 1px solid var(--line); }
+.eyebrow { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 16px; }
+h1 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(2.6rem, 8vw, 4.75rem); line-height: 1.02; letter-spacing: -0.02em;
+  margin: 0 0 20px; text-wrap: balance;
+}
+.lead { font-size: 1.15rem; max-width: 56ch; color: var(--muted); margin: 0 0 28px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-block; padding: 10px 18px; border-radius: 6px;
+  font-weight: 500; font-size: 15px; text-decoration: none;
+  border: 1px solid var(--accent);
+}
+.btn.primary { background: var(--accent); color: var(--accent-fg); }
+.btn.ghost { color: var(--accent); background: transparent; }
+.btn:hover { filter: brightness(1.08); }
+
+section { padding-block: 48px; border-bottom: 1px solid var(--line); }
+section:last-of-type { border-bottom: 0; }
+h2 { font-family: var(--font-display); font-size: 1.6rem; letter-spacing: -0.01em; margin: 0 0 20px; text-wrap: balance; }
+.about p { max-width: 62ch; margin: 0 0 14px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; padding: 0; list-style: none; }
+.facts li { font-family: var(--font-mono); font-size: 13px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); }
+
+.entry { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; max-width: 62ch; }
+.entry h3 { font-family: var(--font-display); font-size: 1.25rem; margin: 0; }
+.entry .sub { color: var(--muted); margin: 0; }
+.entry p { margin: 8px 0 0; }
+
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; }
+.card {
+  min-width: 0; display: flex; flex-direction: column; gap: 14px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px;
+}
+.repo { font-family: var(--font-mono); font-size: 13px; color: var(--muted); overflow-wrap: anywhere; margin: 0; }
+.card h3 { font-family: var(--font-display); font-size: 1.3rem; margin: 0; }
+.card p.desc { margin: 0; color: var(--muted); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.tags li { font-family: var(--font-mono); font-size: 12px; padding: 2px 8px; border-radius: 4px; border: 1px solid var(--line); }
+.card .btn { align-self: flex-start; margin-top: auto; }
+
+.contact p { margin: 0 0 8px; }
+.mono { font-family: var(--font-mono); font-size: 15px; overflow-wrap: anywhere; }
+footer .wrap { padding-block: 28px; color: var(--muted); font-size: 14px; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span class="brand">~/soham-gulati</span>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <p class="eyebrow">B.Tech CSE · AI &amp; ML · Shri Ramswaroop Memorial University</p>
+      <h1>Soham Gulati</h1>
+      <p class="lead">Computer science student aiming to become an all-round individual, building small projects and publishing the code on GitHub.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <a class="btn ghost" href="https://github.com/Amigo-dev09" target="_blank" rel="noopener">GitHub profile</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <h2>About</h2>
+      <p>I strive to achieve the highest standard possible at any task, and I aim to become an all-round individual. I'm currently exploring hazard operations and automation.</p>
+      <p>I'm expanding my skill set by making use of the opportunities my university provides, from coursework to hands-on projects.</p>
+      <ul class="facts" aria-label="Quick facts">
+        <li>B.Tech CSE (AI &amp; ML)</li>
+        <li>Shri Ramswaroop Memorial University</li>
+        <li>Hazard operations &amp; automation</li>
+        <li>Git &amp; GitHub</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <h2>Education</h2>
+      <div class="entry">
+        <h3>B.Tech, Computer Science and Engineering (AI &amp; ML)</h3>
+        <p class="sub">Shri Ramswaroop Memorial University · Expected graduation 2029</p>
+        <p>CGPA: 8.14. Using the university's courses and opportunities to build skills beyond the syllabus.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <ul class="facts" aria-label="Programming languages">
+        <li>C++</li>
+        <li>Java</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="wrap">
+      <h2>Achievements</h2>
+      <div class="entry">
+        <h3>Smart India Hackathon (SIH)</h3>
+        <p class="sub">Team member · 2026</p>
+        <p>Qualified the first round of the national hackathon as part of a team.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="languages">
+    <div class="wrap">
+      <h2>Languages</h2>
+      <ul class="facts" aria-label="Spoken languages">
+        <li>English (fluent)</li>
+        <li>Hindi (fluent)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <div class="projects">
+        <article class="card">
+          <p class="repo">github.com/Amigo-dev09/rock-paper-scissors</p>
+          <h3>Rock Paper Scissors</h3>
+          <p class="desc">A simple game where you play rock, paper or scissors against the computer, round by round.</p>
+          <ul class="tags"><li>C++</li><li>Game</li></ul>
+          <a class="btn primary" href="https://github.com/Amigo-dev09/rock-paper-scissors" target="_blank" rel="noopener">View on GitHub</a>
+        </article>
+
+        <article class="card">
+          <p class="repo">github.com/Amigo-dev09/number-guessing-game</p>
+          <h3>Number Guessing Game</h3>
+          <p class="desc">A simple game where the computer picks a number and you try to guess it in as few attempts as you can.</p>
+          <ul class="tags"><li>C++</li><li>Game</li></ul>
+          <a class="btn primary" href="https://github.com/Amigo-dev09/number-guessing-game" target="_blank" rel="noopener">View on GitHub</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p>The best way to reach me is email or GitHub.</p>
+      <p class="mono">sohamgulati11@gmail.com</p>
+      <p><a href="https://github.com/Amigo-dev09" target="_blank" rel="noopener">github.com/Amigo-dev09</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Soham Gulati</div>
+</footer>
+</body>
+</html>
